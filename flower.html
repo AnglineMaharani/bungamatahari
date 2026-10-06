@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flor Amarilla para ti</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+
+  --color-bg: linear-gradient(
+    to top,
+    #ffb36b 0%,
+    #ff7e5f 35%,
+    #d76d77 60%,
+    #3a1c71 100%
+  );
+
+  --line-color: linear-gradient(
+    to left top,
+    #82ff86 20%,
+    #144425,
+    #104e1c
+  );
+
+  --flower-center: radial-gradient(circle, #000, #ff5e00);
+
+  --leaf-color: radial-gradient(circle, #82ff86, #104e1c);
+
+  --petal-color: radial-gradient(circle, #ff5e00, #ffbb00);
+
+}
+
+      body {
+        background-image: var(--color-bg);
+        min-height: 100vh;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+    h1 {
+
+    position:absolute;
+
+    top:35px;
+
+    width:100%;
+
+    text-align:center;
+
+    color:#fff7d6;
+
+    font-family:'Great Vibes', cursive;
+
+    font-size:55px;
+
+    font-weight:400;
+
+    letter-spacing:2px;
+
+    z-index:10;
+
+    text-shadow:
+    0 3px 10px rgba(0,0,0,.5);
+
+}
+
+.sunflower {
+
+    transform:translateY(60px);
+
+}
+      .flower_wrapper {
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:0px;
+
+    transform:translateX(-50%);
+
+    z-index:5;
+
+}
+
+      .flower_stem {
+        width: 20px;
+        height: 400px;
+        background-image: var(--line-color);
+        border-radius: 20px;
+      }
+
+      .flower_center {
+        position: absolute;
+        top: -93px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background: var(--flower-center);
+        z-index: 5;
+        opacity: 0;
+        animation: open-flower-center 1s ease-out forwards;
+        animation-delay: 1s;
+      }
+
+      .flower_petal {
+        position: absolute;
+        width: 70px;
+        height: 140px;
+        background: var(--petal-color);
+        clip-path: ellipse(35% 50% at 50% 50%);
+        top: -40%;
+        left: 50%;
+        transform-origin: center bottom;
+        opacity: 0;
+        animation: open-flower-petal 1s ease-out forwards;
+      }
+
+      .flower_petal-1 {
+        --rotate-deg: 0deg;
+        animation-delay: 1.2s;
+      }
+      .flower_petal-2 {
+        --rotate-deg: 30deg;
+        animation-delay: 1.25s;
+      }
+      .flower_petal-3 {
+        --rotate-deg: 60deg;
+        animation-delay: 1.3s;
+      }
+      .flower_petal-4 {
+        --rotate-deg: 90deg;
+        animation-delay: 1.35s;
+      }
+      .flower_petal-5 {
+        --rotate-deg: 120deg;
+        animation-delay: 1.4s;
+      }
+      .flower_petal-6 {
+        --rotate-deg: 150deg;
+        animation-delay: 1.45s;
+      }
+      .flower_petal-7 {
+        --rotate-deg: 180deg;
+        animation-delay: 1.5s;
+      }
+      .flower_petal-8 {
+        --rotate-deg: 210deg;
+        animation-delay: 1.55s;
+      }
+      .flower_petal-9 {
+        --rotate-deg: 240deg;
+        animation-delay: 1.6s;
+      }
+      .flower_petal-10 {
+        --rotate-deg: 270deg;
+        animation-delay: 1.65s;
+      }
+      .flower_petal-11 {
+        --rotate-deg: 300deg;
+        animation-delay: 1.7s;
+      }
+      .flower_petal-12 {
+        --rotate-deg: 330deg;
+        animation-delay: 1.75s;
+      }
+
+      .flower_leaf {
+        position: absolute;
+        width: 70px;
+        height: 120px;
+        background: var(--leaf-color);
+        border-radius: 100px 20px 100px 20px;
+        transform-origin: center bottom;
+      }
+
+      .flower_leaf-1 {
+        left: 60%;
+        bottom: 150px;
+        transform: translateX(-45%) rotate(80deg);
+      }
+
+      .flower_leaf-2 {
+        left: 60%;
+        bottom: 200px;
+        transform: translateX(-55%) rotate(-80deg);
+      }
+
+      @keyframes open-flower-petal {
+        0% {
+          transform: translateX(-50%) translateY(50px) rotate(0deg);
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateX(-50%) translateY(0) rotate(var(--rotate-deg));
+          opacity: 1;
+        }
+      }
+
+      @keyframes open-flower-center {
+        0% {
+          transform: translateX(-50%) scale(0);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(-50%) scale(1);
+          opacity: 1;
+        }
+      }
+
+      .flower_light,
+      .light {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: rgb(255, 251, 0);
+        border-radius: 50%;
+        filter: blur(2px);
+        z-index: 1;
+      }
+
+      .flower_light {
+        bottom: 450px;
+        animation: light-ans 4s linear infinite backwards;
+      }
+
+      .light-1 {
+        left: 5%;
+        animation-delay: 1s;
+      }
+      .light-2 {
+        left: 15%;
+        animation-delay: 0.5s;
+      }
+      .light-3 {
+        left: 25%;
+        animation-delay: 0.3s;
+      }
+      .light-4 {
+        left: 35%;
+        animation-delay: 0.9s;
+      }
+      .light-5 {
+        left: 45%;
+        animation-delay: 1.5s;
+      }
+      .light-6 {
+        left: 55%;
+        animation-delay: 3s;
+      }
+      .light-7 {
+        left: 65%;
+        animation-delay: 2s;
+      }
+      .light-8 {
+        left: 75%;
+        animation-delay: 3.5s;
+      }
+      .light-9 {
+        left: 85%;
+        animation-delay: 2s;
+      }
+      .light-10 {
+        left: 92%;
+        animation-delay: 3.5s;
+      }
+      .light-11 {
+        left: 95%;
+        animation-delay: 3s;
+      }
+      .light-12 {
+        left: 98%;
+        animation-delay: 0.5s;
+      }
+      .light {
+        position: absolute;
+        bottom: 0px;
+        width: 10px;
+        height: 10px;
+        background-color: rgb(255, 251, 0);
+        border-radius: 50%;
+        filter: blur(2px);
+        animation: light-ans-background 7s linear infinite backwards;
+        z-index: 1; /* confettis detrás de la flor */
+      }
+
+      .light-1 {
+        left: 100px;
+        animation-delay: 1s;
+      }
+      .light-2 {
+        left: 200px;
+        animation-delay: 0.5s;
+      }
+      .light-3 {
+        left: 600px;
+        animation-delay: 0.3s;
+      }
+      .light-4 {
+        left: 800px;
+        animation-delay: 0.9s;
+      }
+      .light-5 {
+        left: 450px;
+        animation-delay: 1.5s;
+      }
+      .light-6 {
+        left: 100px;
+        animation-delay: 3s;
+      }
+      .light-7 {
+        left: 900px;
+        animation-delay: 2s;
+      }
+      .light-8 {
+        left: 600px;
+        animation-delay: 3.5s;
+      }
+      .light-9 {
+        left: 700px;
+        animation-delay: 2s;
+      }
+      .light-10 {
+        left: 950px;
+        animation-delay: 3.5s;
+      }
+      .light-11 {
+        left: 750px;
+        animation-delay: 3s;
+      }
+      .light-12 {
+        left: 850px;
+        animation-delay: 0.5s;
+      }
+
+      @keyframes light-ans {
+        0% {
+          opacity: 0;
+          transform: translateY(0px);
+        }
+        25% {
+          opacity: 1;
+          transform: translateY(-50px) translateX(-20px);
+        }
+        50% {
+          opacity: 1;
+          transform: translateY(-150px) translateX(20px);
+          filter: blur(2px);
+        }
+        75% {
+          transform: translateY(-200px) translateX(-20px);
+          filter: blur(2px);
+        }
+        100% {
+          transform: translateY(-300px);
+          opacity: 0;
+          filter: blur(10px);
+        }
+      }
+
+      @keyframes light-ans-background {
+        0% {
+          opacity: 0;
+          transform: translateY(0) translateX(0);
+        }
+        25% {
+          opacity: 1;
+          transform: translateY(-100px) translateX(10px);
+        }
+        50% {
+          transform: translateY(-200px) translateX(-10px);
+        }
+        75% {
+          transform: translateY(-400px) translateX(15px);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-600px) translateX(-5px);
+        }
+      }
+      /* RUMPUT SENJA */
+
+.grass-area{
+
+    position:absolute;
+
+    bottom:0;
+
+    left:0;
+
+    width:100%;
+
+    height:130px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-end;
+
+    gap:18px;
+
+    z-index:2;
+
+    overflow:hidden;
+
+}
+
+/* batang rumput */
+
+.grass-blade{
+
+    width:8px;
+
+    height:80px;
+
+    background:
+
+    linear-gradient(
+        to top,
+        #355c2a,
+        #7cb342
+    );
+
+    border-radius:100% 0 100% 0;
+
+    transform-origin:bottom;
+
+    animation:
+
+    grassMove 3s ease-in-out infinite;
+
+}
+
+
+
+/* variasi tinggi */
+
+.grass-blade:nth-child(2n){
+
+    height:110px;
+
+    animation-delay:.5s;
+
+}
+
+
+.grass-blade:nth-child(3n){
+
+    height:60px;
+
+    animation-delay:1s;
+
+}
+
+
+
+
+@keyframes grassMove{
+
+
+0%,100%{
+
+    transform:rotate(-8deg);
+
+}
+
+
+50%{
+
+    transform:rotate(8deg);
+
+}
+
+
+}
+/* =========================
+   BINTANG BERKILAU
+========================= */
+
+
+.star{
+
+position:absolute;
+
+width:5px;
+
+height:5px;
+
+background:#fff;
+
+border-radius:50%;
+
+
+box-shadow:
+
+0 0 8px white,
+0 0 18px #fff7b2;
+
+
+animation:
+
+twinkle 3s infinite ease-in-out;
+
+
+z-index:1;
+
+}
+
+
+
+@keyframes twinkle{
+
+
+0%,100%{
+
+opacity:.2;
+
+transform:scale(.8);
+
+}
+
+
+50%{
+
+opacity:1;
+
+transform:scale(2);
+
+}
+
+
+}
+
+
+
+.star-1{
+left:12%;
+top:15%;
+}
+
+
+.star-2{
+left:28%;
+top:10%;
+animation-delay:1s;
+}
+
+
+.star-3{
+right:25%;
+top:18%;
+animation-delay:2s;
+}
+
+
+.star-4{
+right:12%;
+top:8%;
+animation-delay:.5s;
+}
+
+
+.star-5{
+left:50%;
+top:12%;
+animation-delay:1.5s;
+}
+
+
+
+/* =========================
+   BULAN SABIT
+========================= */
+
+
+.moon{
+
+position:absolute;
+
+right:120px;
+
+top:90px;
+
+
+width:75px;
+
+height:75px;
+
+
+background:#fff5c4;
+
+
+border-radius:50%;
+
+
+box-shadow:
+
+0 0 40px #fff5c4;
+
+
+z-index:1;
+
+
+}
+
+
+.moon::after{
+
+
+content:"";
+
+
+position:absolute;
+
+
+right:25px;
+
+
+top:-5px;
+
+
+width:75px;
+
+
+height:75px;
+
+
+background:#5b2c83;
+
+
+border-radius:50%;
+
+
+}
+
+
+
+
+
+/* =========================
+   KABUT SENJA
+========================= */
+
+
+.mist{
+
+
+position:absolute;
+
+
+bottom:100px;
+
+
+left:0;
+
+
+width:100%;
+
+
+height:100px;
+
+
+background:
+
+linear-gradient(
+
+to top,
+
+rgba(255,255,255,.18),
+
+transparent
+
+);
+
+
+filter:blur(15px);
+
+
+z-index:2;
+
+
+}
+    </style>
+  </head>
+  <body>
+    <audio 
+        id="id_audio"
+        src="song.mp3"
+        loop
+        preload="auto">
+        </audio>
+    <h1>Keep blooming</h1>
+
+    <!-- BINTANG -->
+
+    <div class="star star-1"></div>
+    <div class="star star-2"></div>
+    <div class="star star-3"></div>
+    <div class="star star-4"></div>
+    <div class="star star-5"></div>
+
+    <div class="sunflower">
+      <div class="flower_wrapper">
+        <div class="flower_stem"></div>
+        <div class="flower_center"></div>
+        <div class="flower_petal flower_petal-1"></div>
+        <div class="flower_petal flower_petal-2"></div>
+        <div class="flower_petal flower_petal-3"></div>
+        <div class="flower_petal flower_petal-4"></div>
+        <div class="flower_petal flower_petal-5"></div>
+        <div class="flower_petal flower_petal-6"></div>
+        <div class="flower_petal flower_petal-7"></div>
+        <div class="flower_petal flower_petal-8"></div>
+        <div class="flower_petal flower_petal-9"></div>
+        <div class="flower_petal flower_petal-10"></div>
+        <div class="flower_petal flower_petal-11"></div>
+        <div class="flower_petal flower_petal-12"></div>
+
+        <div class="flower_leaf flower_leaf-1"></div>
+        <div class="flower_leaf flower_leaf-2"></div>
+
+        <div class="flower_light flower_light-1"></div>
+        <div class="flower_light flower_light-2"></div>
+        <div class="flower_light flower_light-3"></div>
+        <div class="flower_light flower_light-4"></div>
+        <div class="flower_light flower_light-5"></div>
+        <div class="flower_light flower_light-6"></div>
+        <div class="flower_light flower_light-7"></div>
+        <div class="flower_light flower_light-8"></div>
+      </div>
+    </div>
+
+    <div class="light light-1"></div>
+    <div class="light light-2"></div>
+    <div class="light light-3"></div>
+    <div class="light light-4"></div>
+    <div class="light light-5"></div>
+    <div class="light light-6"></div>
+    <div class="light light-7"></div>
+    <div class="light light-8"></div>
+    <div class="light light-9"></div>
+    <div class="light light-10"></div>
+    <div class="light light-11"></div>
+    <div class="light light-12"></div>
+    
+    <div class="mist"></div>
+    <!-- RUMPUT BERGOYANG DI SEKITAR BUNGA -->
+
+<div class="grass-area">
+
+
+<div class="grass-blade"></div>
+<div class="grass-blade"></div>
+<div class="grass-blade"></div>
+<div class="grass-blade"></div>
+<div class="grass-blade"></div>
+
+
+<div class="grass-blade"></div>
+<div class="grass-blade"></div>
+<div class="grass-blade"></div>
+<div class="grass-blade"></div>
+<div class="grass-blade"></div>
+
+
+</div>
+    <script>
+    const audio = document.getElementById("id_audio");
+
+
+    audio.volume = 0.5;
+
+
+
+    function playMusic(){
+
+
+    audio.play()
+
+    .then(()=>{
+
+    console.log(
+    "Musik aktif"
+    );
+
+
+    })
+
+    .catch(()=>{
+
+    console.log(
+    "Menunggu interaksi pengguna"
+    );
+
+
+    });
+
+
+    }
+
+
+
+
+
+    window.addEventListener(
+    "load",
+    ()=>{
+
+
+    const izinMusik =
+    sessionStorage.getItem("playMusic");
+
+
+
+    if(izinMusik === "true"){
+
+
+    playMusic();
+
+
+    sessionStorage.removeItem(
+    "playMusic"
+    );
+
+
+    }
+
+
+    });
+
+
+
+
+
+    // cadangan jika HP memblokir autoplay
+
+    document.addEventListener(
+    "click",
+    ()=>{
+
+    playMusic();
+
+    },
+    {
+    once:true
+    }
+    );
+
+    </script>
+  </body>
+</html>
